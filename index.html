@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="utf-8">
+        <title>homework16_string_arrey </title>
+    </head>
+    <style >
+        .container {
+            margin: 0 auto;
+            border : 1px solid black;
+            width: 600px;
+            height: 600px;
+            padding: 10px;
+        }
+        .container h1 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+       form textarea {
+           width: 300px;
+            height: 200px;
+            resize: none;
+            display: table;
+            margin: auto;
+            margin-top: 20px;
+        }
+        .check_text {
+            display: table;
+            margin: auto;
+            margin-top: 20px;
+        }
+        .words {
+            margin : 20px 10px;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <h1>Список заборонених слів : </h1>
+            <div class="words">
+        </div>    
+            <form action="#" name="add_new_word">
+                <input type="text" name="new_word" >
+                <button class="word_add">Додати слова</button>
+            </form>
+            <form action="#" name="text_uzer">
+                <textarea rows="10" cols="45" name="text"></textarea>
+                <button class="check_text">Перевірити текст</button>
+            </form>
+        </div>
+    <script>
+        function getE(a){
+				return document.querySelector(a);
+		}
+		var df = document.forms;    
+    
+        var words = ['word1', 'word2', 'word3'];
+    
+         getE('.words').innerHTML = words.join(' ');
+        
+        getE('.word_add').onclick = function(e) {
+            e.preventDefault();
+            var new_text = df.add_new_word.new_word.value;
+            words.push(new_text);
+            // alert(words);
+            getE('.words').innerHTML = words.join(' ');
+        }
+        
+                getE('.check_text').onclick= function(e) {
+            e.preventDefault();
+                        var tet = 0
+                        var bcg = 0;
+                        var text_uzer = df.text_uzer.text.value.split(" ");
+                        var result =[];
+                    for( var i = 0 ; i<text_uzer.length; i++) {
+                        for ( var j =0; j <words.length; j++ ) {
+                            if ( text_uzer[tet] == words[bcg])  {
+                            // var results = text_uzer.join('*');
+                            // results.innerHTML = "8";
+                            result += text_uzer[tet] + ' ';
+                            //   text_uzer[tet].reverse();
+                                // alert(text_uzer[tet]);
+                                // text_uzer[tet].innerHTML =  'dd';
+                                // var fruits = ["Banana", "Orange", "Apple", "Mango"];
+                                // document.getElementById("demo").innerHTML = fruits;
+                                
+                                // function myFunction() {
+                                //     fruits.splice(2, 1, "Lemon", "Kiwi");
+                                //     document.getElementById("demo").innerHTML = fruits;
+                                // }
+                            } bcg ++;
+                        }
+                        tet++;
+                        bcg = 0;
+                    }
+                     alert('Ці слова  є зоборонені ' + result); 
+                }
+		
+		
+		  
+		
+    
+    
+    
+//         var s="Hello world Hello world Hello world";
+// 		var start=0;
+// 		var sum = 0;
+// 		while(true){
+// 			var res=s.indexOf(" ",start); /
+// 			if(res==-1)break;
+// 				else {
+// 					sum += 1;	
+// 					start=res+1;
+// 				}
+
+// 		}
+// 		alert(sum);
+
+    // var email = prompt('Write you email');
+    //     if ((email.charAt(0) == '@') || (email.indexOf('@')== -1) ||  (email.charAt(email.length-1) == '@' )|| (email.indexOf('.')== -1) ) {
+    //         //  alert(email.charAt(email.length-1));
+    //         alert('You write wrong emaile');
+    //         // var email = prompt('Write you email');
+    //     } else {
+    //         alert('You write good emaile') ;
+            
+    //     }
+
+//             var s="Texthtmljavascripthtmlcss";
+// 		var start=0;
+// 		var sum = 0;
+// 		while(true){
+// 			var res=s.indexOf("html",start); 
+// 			if(res==-1)break;
+// 				else {
+// 					sum += 1;	
+// 					start=res+1;
+// 				}
+
+// 		}
+// 		alert(sum);    
+        
+        
+        
+        
+    </script>
+    </body>
+</html>
